@@ -9,10 +9,11 @@ import pandas as pd
 import joblib
 import os
 
-@st.cache_resource
+#@st.cache_resource
+
 def load_model():
-    model_path = "spam_model.pkl"
-    vectorizer_path = "vectorizer.pkl"
+    model_path = "model.pkl"
+    vectorizer_path = "vector.pkl"
 
     if not os.path.exists(model_path) or not os.path.exists(vectorizer_path):
         st.error("Model files not found. Please run train.py first.")
@@ -21,9 +22,16 @@ def load_model():
     model = joblib.load(model_path)
     vectorizer = joblib.load(vectorizer_path)
     return vectorizer, model
-
-with st.spinner("Loading model..."):
-    vectorizer, model = load_model()
+    
+try:
+    
+    with st.spinner("Loading model..."):
+        vectorizer, model = load_model()
+    st.success("Model loaded successfully.")
+    
+except Exception as e:
+    st.error(f"Failed to load model: {e}")
+    st.stop()
 
 
 st.title("Spam Detector App")

@@ -22,5 +22,5 @@ y = data["label"]
 model = MultinomialNB()
 model.fit(X, y)
 
-joblib.dump(model, "spam_model.pkl")
-joblib.dump(vectorizer, "vectorizer.pkl")
+joblib.dump(model, "model.pkl")
+joblib.dump(vectorizer, "vector.pkl")
