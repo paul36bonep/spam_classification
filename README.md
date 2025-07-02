@@ -7,3 +7,6 @@ The app provides a clean user interface to input any message, and the model will
 ## Screenshot
 
 ![App Screenshot](./screenshot.png)
+
+##Streamlit Link 
+https://abunda-teves-spamdetection.streamlit.app/
